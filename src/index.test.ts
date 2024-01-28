@@ -1,12 +1,12 @@
+import { Env } from '.';
+import { app } from './routes';
+import { expect, it, beforeAll, afterAll } from 'vitest';
 import { unstable_dev } from 'wrangler';
 import type { UnstableDevWorker } from 'wrangler';
-import { expect, it, beforeAll, afterAll } from 'vitest';
-import { app } from './routes';
-import { Env } from '.';
 
 const describe = setupMiniflareIsolatedStorage();
 
-describe('remote-cache worker', () => {
+describe('{{ workerName }} worker', () => {
   let worker: UnstableDevWorker;
   let workerEnv: Env;
   let ctx: ExecutionContext;
@@ -40,14 +40,5 @@ describe('remote-cache worker', () => {
     const request = new Request('http://localhost/ping');
     const res = await app.fetch(request, workerEnv, ctx);
     expect(await res.text()).toBe('pong');
-  });
-
-  it('should respond to the throw-exception route via invoking the app', async () => {
-    const request = new Request('http://localhost/throw-exception');
-    const res = await app.fetch(request, workerEnv, ctx);
-    expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({
-      error: 'Expected error',
-    });
   });
 });
