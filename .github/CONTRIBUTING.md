@@ -10,7 +10,7 @@ Here are some guidelines to help you get started:
 
 To set up the repository on your local machine, follow these steps:
 
-1. Clone the repository using `git clone https://github.com/AdiRishi/turborepo-remote-cache-cloudflare.git`.
+1. Clone the repository using `git clone https://github.com/AdiRishi/cloudflare-queues-scheduler.git`.
 2. Move into the project directory with `cd cloudflare-queues-scheduler`.
 3. Install the project dependencies by running `pnpm install`.
 
