@@ -3,10 +3,10 @@
   "extends": ["config:recommended", ":semanticCommitTypeAll(chore)"],
   "dependencyDashboard": true,
   "rangeStrategy": "bump",
+  "enabled": false,
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
       "automerge": true
     },
     {
