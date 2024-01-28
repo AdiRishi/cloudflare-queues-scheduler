@@ -3,7 +3,7 @@ import { cors } from 'hono/cors';
 import { HTTPException } from 'hono/http-exception';
 import { Env } from '..';
 
-export const app = new Hono<{ Bindings: Env; }>();
+export const app = new Hono<{ Bindings: Env }>();
 
 app.use('*', cors());
 
