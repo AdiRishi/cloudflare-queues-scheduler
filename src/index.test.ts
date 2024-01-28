@@ -6,7 +6,7 @@ import type { UnstableDevWorker } from 'wrangler';
 
 const describe = setupMiniflareIsolatedStorage();
 
-describe('{{ workerName }} worker', () => {
+describe('cloudflare-queues-scheduler worker', () => {
   let worker: UnstableDevWorker;
   let workerEnv: Env;
   let ctx: ExecutionContext;
