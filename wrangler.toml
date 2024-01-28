@@ -1,0 +1,18 @@
+name = "turborepo-remote-cache"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+usage_model = 'bundled'
+
+[vars]
+ENVIRONMENT = 'production'
+# - TURBO_TOKEN (must a valid Bearer auth token)
+# Run `echo <VALUE> | wrangler secret put <NAME>` for each of these
+BUCKET_OBJECT_EXPIRATION_HOURS = 720 # 30 days
+
+[[r2_buckets]]
+binding = 'R2_STORE'
+bucket_name = 'turborepo-cache'
+preview_bucket_name = 'turborepo-cache-preview'
+
+[triggers]
+crons = ["0 3 * * *"]
