@@ -1,7 +1,9 @@
 import { app } from './routes';
 
 export type Env = {
-  ENVIRONMENT: 'development' | 'production';
+  ENVIRONMENT: 'testing' | 'development' | 'production';
+  __D1_BETA_DB: D1Database;
+  DB: D1Database;
 };
 
 export default {
