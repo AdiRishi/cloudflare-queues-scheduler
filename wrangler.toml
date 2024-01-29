@@ -3,5 +3,14 @@ main = "src/index.ts"
 compatibility_date = "2024-01-01"
 usage_model = 'bundled'
 
+compatibility_flags = [ "nodejs_compat" ]
+
 [vars]
 ENVIRONMENT = 'production'
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "cloudflare-queues-scheduler-db"
+database_id = "06bc7967-bda8-403c-8f08-80be47c7c6fc"
+migrations_table = "d1_migrations"
+migrations_dir = "d1_migrations"
