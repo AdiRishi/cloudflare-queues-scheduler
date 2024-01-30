@@ -1,5 +1,6 @@
-import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, index } from 'drizzle-orm/sqlite-core';
 import { createId } from './createId';
+import { epochSeconds } from './customTypes';
 import { InferSelectModel, InferInsertModel, sql } from 'drizzle-orm';
 
 export const eventTable = sqliteTable(
@@ -12,10 +13,11 @@ export const eventTable = sqliteTable(
     dataKey: text('data_key').notNull(),
     dataLocation: text('data_location', { enum: ['R2', 'KV'] }).notNull(),
     queueSlug: text('queue_slug').notNull(),
-    dateAddedUtc: integer('date_added_utc')
+    dateAddedUtc: epochSeconds('date_added_utc')
       .notNull()
-      .default(sql`CURRENT_TIMESTAMP`),
-    dateScheduledUtc: integer('date_scheduled_utc').notNull(),
+      .default(sql`(unixepoch())`)
+      .$default(() => new Date()),
+    dateScheduledUtc: epochSeconds('date_scheduled_utc').notNull(),
     status: text('status', { enum: ['SCHEDULED', 'PROCESSING', 'SUCCEEDED', 'FAILED'] })
       .notNull()
       .default('SCHEDULED'),

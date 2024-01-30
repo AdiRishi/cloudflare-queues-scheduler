@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "b5262568-c459-44bb-84b2-d61c20d101d2",
+  "id": "9a96103c-0a43-4e98-90f3-e3a078021ec6",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "event": {
@@ -41,7 +41,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "default": "CURRENT_TIMESTAMP"
+          "default": "(unixepoch())"
         },
         "date_scheduled_utc": {
           "name": "date_scheduled_utc",

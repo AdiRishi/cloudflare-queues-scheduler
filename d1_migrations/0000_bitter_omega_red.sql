@@ -3,7 +3,7 @@ CREATE TABLE `event` (
 	`data_key` text NOT NULL,
 	`data_location` text NOT NULL,
 	`queue_slug` text NOT NULL,
-	`date_added_utc` integer DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	`date_added_utc` integer DEFAULT (unixepoch()) NOT NULL,
 	`date_scheduled_utc` integer NOT NULL,
 	`status` text DEFAULT 'SCHEDULED' NOT NULL
 );

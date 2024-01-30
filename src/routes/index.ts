@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { HTTPException } from 'hono/http-exception';
 import { Env } from '..';
+import { v1Router } from './v1';
 
 export const app = new Hono<{ Bindings: Env }>();
 
@@ -18,3 +19,4 @@ app.onError((err, c) => {
 });
 
 app.get('/ping', (c) => c.text('pong'));
+app.route('/v1', v1Router);
