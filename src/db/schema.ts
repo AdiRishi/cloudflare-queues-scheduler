@@ -10,8 +10,7 @@ export const eventTable = sqliteTable(
       .notNull()
       .primaryKey()
       .$default(() => createId()),
-    dataKey: text('data_key').notNull(),
-    dataLocation: text('data_location', { enum: ['R2', 'KV'] }).notNull(),
+    data: text('data').notNull(),
     queueSlug: text('queue_slug').notNull(),
     dateAddedUtc: epochSeconds('date_added_utc')
       .notNull()
@@ -23,7 +22,6 @@ export const eventTable = sqliteTable(
       .default('SCHEDULED'),
   },
   (table) => ({
-    dataKeyIdx: index('event_data_key_idx').on(table.dataKey),
     dateScheduledUtcStatusIdx: index('event_date_scheduled_utc_status_idx').on(
       table.dateScheduledUtc,
       table.status

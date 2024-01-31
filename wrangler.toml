@@ -9,7 +9,7 @@ ENVIRONMENT = 'production'
 
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "cloudflare-queues-scheduler-db"
-database_id = "06bc7967-bda8-403c-8f08-80be47c7c6fc"
+database_name = "scheduler-db"
+database_id = "aa0a2253-b40c-49c5-88a8-6d67671f8012"
 migrations_table = "d1_migrations"
 migrations_dir = "d1_migrations"
